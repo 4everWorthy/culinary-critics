@@ -1,0 +1,127 @@
+/* Common Page Layout */
+.page-container {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+/* Hero Sections */
+.hero-section {
+    margin-bottom: 60px;
+}
+
+.hero-title {
+    color: #2B4B6F;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    color: #666;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 60px;
+    padding: 40px 0;
+}
+
+.content-section.dark {
+    background-color: #2B4B6F;
+    color: white;
+    border-radius: 10px;
+}
+
+.section-title {
+    color: #FF8C42;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+}
+
+.section-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Feature Cards */
+.feature-card {
+    height: 100%;
+    padding: 30px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card .card-title {
+    color: #2B4B6F;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.feature-card .card-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Contact Elements */
+.contact-container {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+.contact-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+.contact-link {
+    color: #FF8C42;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #2B4B6F;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.py-40 {
+    padding: 40px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-text {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+}

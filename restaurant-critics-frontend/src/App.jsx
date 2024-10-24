@@ -3,6 +3,7 @@ import NavigationBar from './components/Navbar/navbar.jsx';
 
 import './App.css';
 import Footer from "./components/Footer/footer.jsx";
+import About from "./pages/aboutUs.jsx";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -11,6 +12,7 @@ function App() {
         <>
             {/* Navigation Bar */}
             <NavigationBar />
+            <About />
 
             {/* Main content area */}
                 <div className="content-container">

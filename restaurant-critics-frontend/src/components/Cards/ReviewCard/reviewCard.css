@@ -1,36 +1,39 @@
-.review-card-container {
-    padding: 20px;
-    border: 1px solid #cc5500;  /* Burnt orange border */
+.review-card {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: #FFFFFF;
+    border: 2px solid #CC5500; /* Burnt Orange border */
     border-radius: 8px;
-    background-color: #fff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.user-image {
-    width: 50px;
-    height: 50px;
-}
-
-.user-info p {
-    margin: 0;
-    font-size: 12px;
-}
-
-.review-image {
+.review-text {
     margin-top: 10px;
-    border-radius: 8px;
+    font-size: 1rem;
+    color: #333; /* Neutral text color */
 }
 
-.rating {
-    display: flex;
-    align-items: center;
+.card-header {
+    color: #2F4F77; /* Deep Blue for restaurant name */
 }
 
-.rating span:first-child {
-    color: #f39c12; /* Color for star ratings */
+.user-badge {
+    color: #2F4F77; /* Deep Blue for user's name */
 }
 
-.rating span:last-child {
-    margin-left: 5px;
-    font-size: 14px;
-    color: #333;
+.review-alert {
+    font-size: 0.9rem;
+    color: #DEB887; /* Warm Tan for alert text */
+}
+
+.rating-stars .filled {
+    color: #CC5500; /* Burnt Orange for filled stars */
+}
+
+.rating-stars .empty {
+    color: #DEB887; /* Warm Tan for empty stars */
+}
+
+.review-counter {
+    font-size: 1rem;
+    color: #2F4F77; /* Deep Blue for review counter */
 }

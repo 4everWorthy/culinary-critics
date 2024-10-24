@@ -8,24 +8,25 @@ import ReviewCounter from '../../ReviewCounter/reviewCounter';
 import UserBadge from '../../UserBadge/userBadge';
 import ReviewTextbox from '../../ReviewTextbox/reviewTextbox';
 import './reviewCard.css';
-
-
-const ReviewCard = ({ user, imageSrc, restaurantName, reviewText, rating, reviewDate }) => {
+const ReviewCard = ({ restaurantName, user, reviewText, rating, alertText, reviewCount, imageSrc ,reviewDate}) => {
     return (
         <Card className="review-card">
-            <Card.Header className="review-card-header">
-                <UserBadge user={user} />
+            <div className="user-badge-header">
+                <UserBadge user={user}/>
                 <ReviewAlert user={user} reviewDate={reviewDate} />
-            </Card.Header>
-
-            <CardImage imageSrc={imageSrc} />
-
-            <Card.Body>
-                <CardHeader title={restaurantName} />
-                <RatingStar rating={rating} />
-                <ReviewCounter count={rating} />
-                <ReviewTextbox reviewText={reviewText} />
-            </Card.Body>
+            </div>
+            <CardImage imageSrc={imageSrc}/>
+            <CardHeader restaurantName={restaurantName}/>
+            <div className="rating-stars">
+                {Array(rating).fill().map((_, index) => (
+                    <RatingStar className="filled" key={`filled-${index}`} />
+                ))}
+                {Array(5 - rating).fill().map((_, index) => (
+                    <RatingStar className="empty" key={`empty-${index}`} />
+                ))}
+                <ReviewCounter reviewCount={reviewCount} />
+            </div>
+            <ReviewTextbox reviewText={reviewText}/>
         </Card>
     );
 };

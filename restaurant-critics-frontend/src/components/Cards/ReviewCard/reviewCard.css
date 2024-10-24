@@ -4,36 +4,51 @@
     border: 2px solid #CC5500; /* Burnt Orange border */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.review-text {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #333; /* Neutral text color */
-}
-
-.card-header {
-    color: #2F4F77; /* Deep Blue for restaurant name */
+    padding: 16px;
+    max-width: 400px; /* Adjust the width for the card */
+    margin: 0 auto; /* Center the card horizontally */
 }
 
 .user-badge {
-    color: #2F4F77; /* Deep Blue for user's name */
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
-.review-alert {
-    font-size: 0.9rem;
-    color: #DEB887; /* Warm Tan for alert text */
+.user-badge img {
+    border-radius: 50%;
+    width: 40px; /* Reduced size for the avatar */
+    height: 40px;
+    margin-right: 10px;
 }
 
-.rating-stars .filled {
-    color: #CC5500; /* Burnt Orange for filled stars */
+.card-header {
+    font-size: 1.5rem; /* Larger font size for restaurant name */
+    margin-bottom: 8px;
+    color: #2F4F77; /* Deep Blue for restaurant name */
 }
 
-.rating-stars .empty {
-    color: #DEB887; /* Warm Tan for empty stars */
+.card-image {
+    width: 100%;
+    object-fit: cover; /* Ensures the image fits well without distortion */
+    margin-bottom: 12px; /* Space between image and text */
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+}
+
+.rating-stars .filled, .rating-stars .empty {
+    font-size: 1.5rem;
 }
 
 .review-counter {
+    margin-left: 8px; /* Space between stars and review count */
+}
+
+.review-text {
+    margin-top: 12px;
     font-size: 1rem;
-    color: #2F4F77; /* Deep Blue for review counter */
+    color: #333; /* Neutral color for review text */
 }

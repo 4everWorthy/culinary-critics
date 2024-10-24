@@ -1,11 +1,10 @@
 import React from 'react';
-import './cardHeader.css';
 
-const CardHeader = ({ title }) => {
+const CardHeader = ({ restaurantName }) => {
     return (
-        <div className="card-header">
-            <h5 className="restaurant-title">{title}</h5>
-        </div>
+        <h4 className="card-header">
+            {restaurantName}
+        </h4>
     );
 };
 

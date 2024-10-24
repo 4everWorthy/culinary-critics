@@ -32,11 +32,16 @@ const Signup = () => {
                 email: formData.email,
                 password: formData.password,
             });
-            if (result && result._id) {
+
+            // Log the response to further inspect the data structure
+            console.log('Signup response:', result);
+
+            // Adjust this based on the message returned from the backend
+            if (result && result.message === 'User registered successfully') {
                 setSuccess(true);
                 setError('');
             } else {
-                setError('Signup failed. Please try again.');
+                setError(result.message || 'Signup failed. Please try again.');
             }
         } catch (err) {
             setError('Signup failed. Please try again.');

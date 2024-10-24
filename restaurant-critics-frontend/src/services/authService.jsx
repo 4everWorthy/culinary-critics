@@ -10,7 +10,7 @@ export const signup = async (formData) => {
             body: JSON.stringify(formData),
         });
         const data = await response.json();
-        return data; // Returning the response to handle it in signup.jsx
+        return data; // Return the parsed response
     } catch (error) {
         console.error('Error during signup:', error);
         throw error;

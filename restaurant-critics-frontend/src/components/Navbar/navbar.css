@@ -1,0 +1,9 @@
+.navbar-brand {
+    font-family: 'Cursive', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .navbar-nav .nav-link {
+    color: #fff !important;
+  }
+  

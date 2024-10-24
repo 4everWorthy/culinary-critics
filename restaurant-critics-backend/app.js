@@ -1,26 +1,37 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+const connectDB = require('./config/db'); // Import DB connection function
 const cors = require('cors');
-const logger = require('./utils/logger');
 
+// Load environment variables
 dotenv.config();
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use(logger);
 
-// Connect Database
+// Initialize the app
+const app = express();
+
+// Middleware
+app.use(express.json());
+app.use(cors());
+
+// Connect to MongoDB
 connectDB();
 
-// Routes
-app.use('/api/reviews', require('./routes/reviewRoutes'));
-app.use('/api/users', require('./routes/userRoutes'));
-app.use('/api/businesses', require('./routes/businessRoutes'));
+// Test Route
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
 
-// Error handling middleware
-app.use(require('./middlewares/errorHandler'));
+// Import Routes
+const businessRoutes = require('./routes/businessRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
+const userRoutes = require('./routes/userRoutes');
 
+// Use Routes
+app.use('/api/businesses', businessRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/users', userRoutes);
+
+// Set the port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

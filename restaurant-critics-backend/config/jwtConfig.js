@@ -13,7 +13,14 @@ const jwtExpiry = process.env.JWT_EXPIRY || '1h'; // Default to 1 hour if not se
  */
 const generateToken = (user) => {
   // Payload can include any necessary user data (id, email, roles, etc.)
-  const payload = { id: user._id, email: user.email };
+  const payload = { id: user._id, email: user.email }; // If you have roles or other claims, you can include them here
+
+  // NEW: Log a warning if the secret is the default value, for security awareness
+  if (jwtSecret === 'yourSecretKey') {
+    console.warn('Warning: Using default JWT secret. Consider setting a strong secret in the .env file.');
+  }
+
+  // Return the signed JWT
   return jwt.sign(payload, jwtSecret, { expiresIn: jwtExpiry });
 };
 
@@ -25,9 +32,17 @@ const generateToken = (user) => {
  */
 const verifyToken = (token) => {
   try {
+    // Verify the token and return the decoded payload
     return jwt.verify(token, jwtSecret);
   } catch (error) {
-    throw new Error('Invalid or expired token');
+    // UPDATED: Provide more detailed error handling without exposing sensitive info
+    if (error.name === 'TokenExpiredError') {
+      throw new Error('Token has expired');
+    } else if (error.name === 'JsonWebTokenError') {
+      throw new Error('Invalid token');
+    } else {
+      throw new Error('Token verification failed');
+    }
   }
 };
 

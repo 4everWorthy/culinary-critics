@@ -1,34 +1,21 @@
-import { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import reviewService from '../../services/reviewService';
-import ReviewCard from '../ReviewCard/reviewCard';
+import React from 'react';
+import ReviewCard from '../Cards/ReviewCard/reviewCard'; // Adjust as needed
 
-const ReviewList = () => {
-    const [reviews, setReviews] = useState([]);
-
-    useEffect(() => {
-        const fetchReviews = async () => {
-            try {
-                const response = await reviewService.getAllReviews();
-                setReviews(response.data);
-            } catch (error) {
-                console.error('Error fetching reviews:', error);
-            }
-        };
-
-        fetchReviews();
-    }, []);
-
+const ReviewList = ({ reviews }) => {
     return (
-        <Container>
-            <Row>
-                {reviews.map((review, index) => (
-                    <Col key={index} md={4} sm={6} xs={12}>
-                        <ReviewCard review={review} />
-                    </Col>
-                ))}
-            </Row>
-        </Container>
+        <div>
+            {reviews && reviews.map((review, index) => (
+                <ReviewCard
+                    key={index}
+                    user={review.user}
+                    imageSrc={review.imageSrc}
+                    restaurantName={review.restaurantName}
+                    reviewText={review.reviewText}
+                    rating={review.rating}
+                    reviewDate={review.reviewDate}
+                />
+            ))}
+        </div>
     );
 };
 

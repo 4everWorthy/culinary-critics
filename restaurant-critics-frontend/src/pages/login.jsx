@@ -1,6 +1,5 @@
-// login.jsx
-
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import { login } from '../services/authService'; // Using named export
 
 const Login = () => {
@@ -10,6 +9,7 @@ const Login = () => {
     });
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
+    const navigate = useNavigate(); // Initialize navigate for redirection
 
     const handleChange = (e) => {
         setFormData({
@@ -25,9 +25,13 @@ const Login = () => {
                 email: formData.email,
                 password: formData.password,
             });
+
             if (result && result.message === 'Login successful') {
                 setSuccess(true);
                 setError('');
+                localStorage.setItem('token', result.token); // Save the JWT token in localStorage
+
+                navigate('/profile'); // Redirect to profile page after successful login
             } else {
                 setError('Invalid login credentials. Please try again.');
             }
@@ -40,7 +44,7 @@ const Login = () => {
         <div>
             <h2>Login</h2>
             {success ? (
-                <p>Login successful!</p>
+                <p>Login successful! Redirecting...</p>
             ) : (
                 <>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -51,6 +55,7 @@ const Login = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
+                            required
                         />
                         <label>Password</label>
                         <input
@@ -58,6 +63,7 @@ const Login = () => {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
+                            required
                         />
                         <button type="submit">Login</button>
                     </form>

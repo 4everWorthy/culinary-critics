@@ -10,6 +10,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ReviewCard from './components/Cards/ReviewCard/reviewCard';
 import reviewService from './services/reviewService'; // Import review service to fetch reviews
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
     const [reviews, setReviews] = useState([]);

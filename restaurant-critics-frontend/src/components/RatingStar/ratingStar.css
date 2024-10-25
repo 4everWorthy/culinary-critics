@@ -1,0 +1,12 @@
+.rating-stars {
+    display: flex;
+    margin: 5px 0;
+}
+
+.filled {
+    color: #CC5500; /* Burnt Orange */
+}
+
+.empty {
+    color: #DEB887; /* Warm Tan */
+}

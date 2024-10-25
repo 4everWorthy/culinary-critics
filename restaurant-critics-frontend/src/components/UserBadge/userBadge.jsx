@@ -1,0 +1,18 @@
+import React from 'react';
+import './userBadge.css';
+
+const UserBadge = ({ user }) => {
+    return (
+        <div className="user-badge">
+            <img
+                src={user?.avatar || 'default-avatar-url'}
+                alt="User Avatar"
+                className="user-avatar"
+            />
+            <span>{user?.name || 'Anonymous'}</span>
+        </div>
+    );
+};
+
+export default UserBadge;
+

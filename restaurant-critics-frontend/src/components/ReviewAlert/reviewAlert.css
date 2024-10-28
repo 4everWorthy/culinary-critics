@@ -1,5 +1,15 @@
+/* Styling for the review alert component */
 .review-alert {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     font-size: 0.9rem;
-    text-align: right;
-    margin-left: 50px;
+    text-align: left;
+    color: #555;
+    background-color: #FFFFFF; /* White background inside */
+    padding: 10px;
+    border: 4px solid #CC5500; /* Thick orange border */
+    border-radius: 8px; /* Rounded corners */
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn’t affect border */
 }

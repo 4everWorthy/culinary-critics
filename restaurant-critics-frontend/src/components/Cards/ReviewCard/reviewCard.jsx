@@ -26,7 +26,7 @@ const ReviewCard = ({ restaurantName, user, reviewText, rating, alertText, revie
                 {Array(5 - rating).fill().map((_, index) => (
                     <RatingStar className="empty" key={`empty-${index}`} />
                 ))}
-                <ReviewCounter reviewCount={reviewCount} />
+                {/*<ReviewCounter reviewCount={reviewCount} />*/}
             </div>
             <ReviewTextbox reviewText={reviewText}/>
         </Card>

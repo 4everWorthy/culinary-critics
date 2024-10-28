@@ -7,7 +7,7 @@ const UserBadge = ({ user }) => {
     return (
         <div className="user-badge">
             <img
-                src={user?.avatar || 'default-avatar-url'}
+                src={user?.avatar || '/src/assets/images/avatar.png'}
                 alt="User Avatar"
                 className="user-avatar"
             />
@@ -17,4 +17,3 @@ const UserBadge = ({ user }) => {
 };
 
 export default UserBadge;
-

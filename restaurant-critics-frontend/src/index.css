@@ -6,7 +6,7 @@ body {
 }
 
 .review-card {
-  border: 2px solid #CC5500; /* Burnt Orange border */
+  border: 4px solid #2F4F77; /* Dark blue border */
 }
 
 .card-header {
@@ -36,3 +36,4 @@ body {
 .review-counter {
   color: #2F4F77; /* Deep Blue for the review count */
 }
+

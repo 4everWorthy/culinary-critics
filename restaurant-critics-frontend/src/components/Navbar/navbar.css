@@ -1,77 +1,68 @@
-.custom-navbar {
-    background-color: #2B4B6F;
-    padding: 15px 0;
-  }
-  
-  .brand-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .nav-logo {
-    width: 48px;
-    height: 48px;
-  }
-  
-  .brand-text {
-    color: #FF8C42 !important;
-    font-family: cursive;
-    font-size: 2.5rem;
-    margin: 0;
-  }
-  
-  .buttons-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-left: auto;
-  }
-  
-  .review-link {
-    color: white !important;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    padding: 8px 16px;
-  }
-  
-  .review-link:hover {
-    color: #FF8C42 !important;
-  }
-  
-  .auth-buttons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .login-btn,
-  .signup-btn {
-    background-color: #FF8C42 !important;
-    border: none !important;
-    padding: 8px 16px;
-    transition: opacity 0.3s ease;
-  }
-  
-  .login-btn:hover,
-  .signup-btn:hover {
-    opacity: 0.9;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 991px) {
-    .buttons-container {
-        margin-top: 15px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-  
-    .auth-buttons {
-        width: 100%;
-        justify-content: flex-start;
-    }
-  
-    .brand-text {
-        font-size: 2rem;
-    }
-  }
+/* navbar.css */
+
+.navbar-custom {
+  background-color: #2F4F77;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  height: 60px; /* Adjust as needed */
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 3.5rem;
+  font-style: italic;
+  color: #CC5500; /* Burnt Orange */
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.navbar-nav .nav-link {
+  color: #FFFFFF !important;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #DEB887; /* Warm Tan on hover */
+}
+
+
+/* Outline light button styling */
+.navbar-nav .btn-outline-light {
+  color: #CC5500; /* Burnt Orange */
+  border: 2px solid #CC5500; /* Thicker border */
+  background-color: transparent;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.2rem; /* Slightly larger font */
+  font-weight: bold; /* Make font bold */
+  padding: 6px 16px; /* Adjust padding for larger size */
+}
+
+.navbar-nav .btn-outline-light:hover {
+  color: #FFFFFF;
+  background-color: #CC5500; /* Burnt Orange on hover */
+  border-color: #CC5500;
+}
+
+/* Warning button styling */
+.navbar-nav .btn-warning {
+  background-color: #DEB887; /* Warm Tan */
+  border: 2px solid #CC5500; /* Thicker border */
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #CC5500;
+  font-size: 1.2rem; /* Slightly larger font */
+  font-weight: bold; /* Make font bold */
+  padding: 6px 16px; /* Adjust padding for larger size */
+}
+
+.navbar-nav .btn-warning:hover {
+  background-color: #CC5500; /* Burnt Orange on hover */
+  color: #FFFFFF;
+  border-color: #CC5500;
+}

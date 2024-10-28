@@ -56,6 +56,19 @@
   .signup-btn:hover {
     opacity: 0.9;
   }
+  /* styles.css */
+.logout-button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .logout-button:hover {
+    color: #ffdd57; /* Change to a hover color if needed */
+  }
+  
   
   /* Responsive Design */
   @media (max-width: 991px) {

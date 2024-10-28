@@ -9,7 +9,7 @@ import Signup from './pages/signup';
 import UserProfile from './pages/userProfile'; // Ensure this is imported
 import WriteReview from './pages/writeReview';
 import AboutUs from './pages/aboutUs'; // Import the About Us component
-
+import Contact from './pages/contact.jsx';
 import './App.css';
 
 function App() {
@@ -24,10 +24,12 @@ function App() {
           <Route path="/profile" element={<UserProfile />} /> {/* Add this route */}
           <Route path="/write-review" element={<WriteReview />} />
           <Route path="/about-us" element={<AboutUs />} /> {/* Add this route */}
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
       <Footer />
     </Router>
+
   );
 }
 

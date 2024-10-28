@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 
-const ReviewForm = ({ token, onSubmit, review }) => {
+const ReviewForm = ({ onSubmit, review }) => {
     const [restaurantName, setRestaurantName] = useState('');
     const [reviewText, setReviewText] = useState('');
     const [rating, setRating] = useState(0);

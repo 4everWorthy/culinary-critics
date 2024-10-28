@@ -1,17 +1,19 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
-import reviewService from '../services/reviewService'; // To fetch, add, edit, delete reviews
-import ReviewForm from '../components/ReviewForm/reviewForm.jsx'; // Form to add new review
+import reviewService from '../services/reviewService';
+import ReviewForm from '../components/ReviewForm/reviewForm';
+import './formStyles.css'; // Ensure styling consistency
 
 const UserProfile = () => {
     const [reviews, setReviews] = useState([]);
-    const [editingReview, setEditingReview] = useState(null); // Track review being edited
-    const token = localStorage.getItem('token'); // Fetch JWT token from local storage
+    const [editingReview, setEditingReview] = useState(null);
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         const fetchReviews = async () => {
             try {
                 const response = await reviewService.getAllReviews();
-                setReviews(response.data); // Load the user's reviews
+                setReviews(response.data); 
             } catch (error) {
                 console.error('Error fetching reviews:', error);
             }
@@ -19,37 +21,32 @@ const UserProfile = () => {
         fetchReviews();
     }, []);
 
-    // Function to handle review deletion
     const handleDelete = async (reviewId) => {
         try {
-            await reviewService.deleteReview(reviewId, token); // Call delete service
-            setReviews(reviews.filter((review) => review._id !== reviewId)); // Update UI after deletion
+            await reviewService.deleteReview(reviewId, token);
+            setReviews(reviews.filter((review) => review._id !== reviewId));
         } catch (error) {
             console.error('Error deleting review:', error);
         }
     };
 
-    // Function to handle review editing
     const handleEdit = (review) => {
-        setEditingReview(review); // Set the selected review for editing
+        setEditingReview(review);
     };
 
-    // Function to handle adding or updating review
     const handleFormSubmit = async (reviewData) => {
         if (editingReview) {
-            // If editing, update the review
             try {
                 await reviewService.updateReview(editingReview._id, reviewData, token);
-                setReviews(reviews.map((r) => (r._id === editingReview._id ? reviewData : r))); // Update the review list
-                setEditingReview(null); // Reset after editing
+                setReviews(reviews.map((r) => (r._id === editingReview._id ? { ...r, ...reviewData } : r)));
+                setEditingReview(null);
             } catch (error) {
                 console.error('Error updating review:', error);
             }
         } else {
-            // If adding a new review
             try {
                 const newReview = await reviewService.addReview(reviewData, token);
-                setReviews([...reviews, newReview.data]); // Add new review to list
+                setReviews([...reviews, newReview.data]);
             } catch (error) {
                 console.error('Error adding review:', error);
             }
@@ -57,17 +54,17 @@ const UserProfile = () => {
     };
 
     return (
-        <div>
+        <div className="profile-container">
             <h2>Your Reviews</h2>
-            <ReviewForm token={token} onSubmit={handleFormSubmit} review={editingReview} />
+            <ReviewForm onSubmit={handleFormSubmit} review={editingReview} />
 
             <div className="review-list">
                 {reviews.map((review) => (
-                    <div key={review._id}>
+                    <div key={review._id} className="review-item">
                         <h3>{review.restaurantName}</h3>
                         <p>{review.reviewText}</p>
-                        <button onClick={() => handleEdit(review)}>Edit</button>
-                        <button onClick={() => handleDelete(review._id)}>Delete</button>
+                        <button className="edit-button" onClick={() => handleEdit(review)}>Edit</button>
+                        <button className="delete-button" onClick={() => handleDelete(review._id)}>Delete</button>
                     </div>
                 ))}
             </div>

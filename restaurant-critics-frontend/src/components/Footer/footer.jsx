@@ -1,15 +1,23 @@
-//import React from 'react';
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
+import logo from '../../assets/images/Logo_Culinary_Critics.png';
 import './footer.css';
 
-const Footer = () => {
+function Footer() {
     return (
         <footer className="footer">
-            <div className="text-center py-3">
-                <p>&copy; Culinary Critics 2024</p>
-                <p><a href="/aboutUs">About Us</a> | <a href="/contact">Contact</a></p>
+            <div className="footer-content">
+                <div className="footer-left">
+                    <p>© Culinary Critics</p>
+                    <img src={logo} alt="Culinary Critics Logo" className="footer-logo"/>
+                </div>
+                <div className="footer-right">
+                    <a href="/about-us" className="footer-link">About Us</a>
+                    <a href="/contact" className="footer-link">Contact</a>
+                </div>
             </div>
         </footer>
     );
-};
+}
 
 export default Footer;

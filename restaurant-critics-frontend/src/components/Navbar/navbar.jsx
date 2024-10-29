@@ -15,7 +15,7 @@ function NavigationBar() {
   };
 
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" className="navbar-custom">
+    <Navbar  variant="dark" expand="lg" className="navbar-custom">
       <Container>
         <Navbar.Brand as={Link} to="/" className="text-light">
           <img

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .custom-navbar {
     background-color: #2B4B6F;
     padding: 15px 0;
@@ -88,3 +89,73 @@
         font-size: 2rem;
     }
   }
+=======
+/* navbar.css */
+
+.navbar-custom {
+  background-color: #2F4F77;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  height: 60px; /* Adjust as needed */
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 3.5rem;
+  font-style: italic;
+  color: #CC5500; /* Burnt Orange */
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.navbar-nav .nav-link {
+  color: #FFFFFF !important;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #DEB887; /* Warm Tan on hover */
+}
+
+
+/* Outline light button styling */
+.navbar-nav .btn-outline-light {
+  color: #CC5500; /* Burnt Orange */
+  border: 2px solid #CC5500; /* Thicker border */
+  background-color: transparent;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.2rem; /* Slightly larger font */
+  font-weight: bold; /* Make font bold */
+  padding: 6px 16px; /* Adjust padding for larger size */
+}
+
+.navbar-nav .btn-outline-light:hover {
+  color: #FFFFFF;
+  background-color: #CC5500; /* Burnt Orange on hover */
+  border-color: #CC5500;
+}
+
+/* Warning button styling */
+.navbar-nav .btn-warning {
+  background-color: #DEB887; /* Warm Tan */
+  border: 2px solid #CC5500; /* Thicker border */
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #CC5500;
+  font-size: 1.2rem; /* Slightly larger font */
+  font-weight: bold; /* Make font bold */
+  padding: 6px 16px; /* Adjust padding for larger size */
+}
+
+.navbar-nav .btn-warning:hover {
+  background-color: #CC5500; /* Burnt Orange on hover */
+  color: #FFFFFF;
+  border-color: #CC5500;
+}
+>>>>>>> Carrie2

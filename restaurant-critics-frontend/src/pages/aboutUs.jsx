@@ -1,57 +1,76 @@
-import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
 
-function About() {
+function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form submitted:', formData);
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+    };
+
     return (
-        <div className="page-container">
-            <Container>
-                {/* Hero Section */}
-                <Row className="hero-section">
-                    <Col md={12} className="text-center">
-                        <h1 className="hero-title">About Culinary Critics</h1>
-                        <p className="hero-subtitle">Connecting Food Lovers With Great Restaurants Since 2024</p>
-                    </Col>
-                </Row>
+        <div className="contact-container" style={{ margin: '40px 0' }}>
+            <h2>Contact Us</h2>
+            {submitted ? (
+                <p className="thank-you-message">Thank you for reaching out! We'll get back to you soon.</p>
+            ) : (
+                <form onSubmit={handleSubmit} className="contact-form">
+                    <div className="form-group">
+                        <label htmlFor="name">Name:</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
 
-                {/* Mission Section */}
-                <Row className="content-section dark">
-                    <Col md={12} className="text-center">
-                        <h2 className="section-title">Our Mission</h2>
-                        <p className="section-text">
-                            At Culinary Critics, we believe every meal tells a story. Our platform empowers food enthusiasts
-                            to share their dining experiences and helps others discover exceptional restaurants in their area.
-                        </p>
-                    </Col>
-                </Row>
+                    <div className="form-group">
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
 
-                {/* Features Section */}
-                <Row className="content-section justify-content-center">
-                    <Col md={4}>
-                        <Card className="feature-card text-center" style={{ borderColor: '#CC5500', borderWidth: '2px' }}>
-                            <Card.Body>
-                                <Card.Title>Honest Reviews</Card.Title>
-                                <Card.Text>
-                                    Real reviews from real food lovers. Our community shares authentic dining experiences
-                                    to help you make informed choices.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+                    <div className="form-group">
+                        <label htmlFor="message">Message:</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            required
+                        ></textarea>
+                    </div>
 
-                {/* Contact Section */}
-                {/* <Row className="contact-container">
-                    <Col md={12} className="text-center">
-                        <h2 className="section-title">Get in Touch</h2>
-                        <p className="contact-text">
-                            Have questions or suggestions? We'd love to hear from you!<br />
-                            Email us at: <a className="contact-link" href="mailto:contact@culinarycritic.com">contact@culinarycritic.com</a>
-                        </p>
-                    </Col>
-                </Row> */}
-            </Container>
+                    <button type="submit" className="form-button" style={{ width: 'auto', padding: '10px 20px' }}>Submit</button>
+                </form>
+            )}
         </div>
     );
 }
 
-export default About;
+export default Contact;

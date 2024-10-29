@@ -30,7 +30,7 @@ function Contact() {
     };
 
     return (
-        <div className="contact-container">
+        <div className="contact-container" style={{ margin: '40px 0' }}>
             <h2>Contact Us</h2>
             {submitted ? (
                 <p className="thank-you-message">Thank you for reaching out! We'll get back to you soon.</p>
@@ -71,7 +71,7 @@ function Contact() {
                         ></textarea>
                     </div>
 
-                    <button type="submit" className="submit-button">Submit</button>
+                    <button type="submit" className="form-button" style={{ width: 'auto', padding: '10px 20px' }}>Submit</button>
                 </form>
             )}
         </div>

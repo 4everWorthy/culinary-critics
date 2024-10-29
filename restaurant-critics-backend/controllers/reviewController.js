@@ -1,4 +1,5 @@
 const Review = require('../models/Review');
+const path = require('path'); // For handling file paths
 
 // Get all reviews
 exports.getReviews = async (req, res) => {
@@ -10,12 +11,17 @@ exports.getReviews = async (req, res) => {
   }
 };
 
-// Add a new review
+// Add a new review with image handling
 exports.addReview = async (req, res) => {
   console.log('Received review data:', req.body); // Log the received data
-  const { restaurantName, reviewerName, rating, reviewText, imageUrl } = req.body;
 
-  // Add validation checks to see if the required fields are present
+  // Retrieve text fields from req.body
+  const { restaurantName, reviewerName, rating, reviewText } = req.body;
+
+  // Retrieve file data from req.file if an image was uploaded
+  const imageUrl = req.file ? `/uploads/${req.file.filename}` : null; // Use relative URL
+
+  // Validation checks for required fields
   if (!restaurantName || !reviewText || !rating) {
     return res.status(400).json({ message: 'Restaurant name, review text, and rating are required.' });
   }
@@ -25,6 +31,7 @@ exports.addReview = async (req, res) => {
     return res.status(400).json({ message: 'Rating must be between 1 and 5.' });
   }
 
+  // Create new review document with or without imageUrl
   const review = new Review({ restaurantName, reviewerName, rating, reviewText, imageUrl });
 
   try {
@@ -35,16 +42,17 @@ exports.addReview = async (req, res) => {
   }
 };
 
-// Update an existing review
+// Update an existing review with image handling
 exports.updateReview = async (req, res) => {
   const { id } = req.params;
-  const { restaurantName, reviewerName, rating, reviewText, imageUrl } = req.body;
+  const { restaurantName, reviewerName, rating, reviewText } = req.body;
+  const imageUrl = req.file ? `/uploads/${req.file.filename}` : req.body.imageUrl; // Use new image if uploaded
 
   try {
     const updatedReview = await Review.findByIdAndUpdate(
-      id,
-      { restaurantName, reviewerName, rating, reviewText, imageUrl },
-      { new: true } // Return the updated document
+        id,
+        { restaurantName, reviewerName, rating, reviewText, imageUrl },
+        { new: true } // Return the updated document
     );
 
     if (!updatedReview) {

@@ -2,23 +2,28 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import CardHeader from '../../CardHeader/cardHeader'; // Adjusted relative path
-import CardImage from '../../CardImage/cardImage'; // Adjusted relative path
-import RatingStar from '../../RatingStar/ratingStar'; // Adjusted relative path
-import ReviewAlert from '../../ReviewAlert/reviewAlert'; // Adjusted relative path
-import ReviewCounter from '../../ReviewCounter/reviewCounter'; // Adjusted relative path
-import UserBadge from '../../UserBadge/userBadge'; // Adjusted relative path
-import ReviewTextbox from '../../ReviewTextbox/reviewTextbox'; // Adjusted relative path
-import './reviewCard.css'; // Stay in the same folder for CSS
-const ReviewCard = ({ restaurantName, user, reviewText, rating, alertText, reviewCount, imageSrc ,reviewDate}) => {
+import CardHeader from '../../CardHeader/cardHeader';
+import CardImage from '../../CardImage/cardImage';
+import RatingStar from '../../RatingStar/ratingStar';
+import ReviewAlert from '../../ReviewAlert/reviewAlert';
+import UserBadge from '../../UserBadge/userBadge';
+import ReviewTextbox from '../../ReviewTextbox/reviewTextbox';
+import './reviewCard.css';
+
+const BASE_URL = 'http://localhost:5000'; // Update to your server URL if deployed
+
+const ReviewCard = ({ restaurantName, user, reviewText, rating, alertText, reviewCount, imageSrc, reviewDate }) => {
+    // Construct the full URL for the image source
+    const imageUrl = imageSrc ? `${BASE_URL}${imageSrc}` : '/default-image.png';
+
     return (
         <Card className="review-card">
             <div className="user-badge-header">
-                <UserBadge user={user}/>
+                <UserBadge user={user} />
                 <ReviewAlert user={user} reviewDate={reviewDate} />
             </div>
-            <CardImage imageSrc={imageSrc}/>
-            <CardHeader restaurantName={restaurantName}/>
+            <CardImage imageSrc={imageUrl} />
+            <CardHeader restaurantName={restaurantName} />
             <div className="rating-stars">
                 {Array(rating).fill().map((_, index) => (
                     <RatingStar className="filled" key={`filled-${index}`} />
@@ -26,9 +31,8 @@ const ReviewCard = ({ restaurantName, user, reviewText, rating, alertText, revie
                 {Array(5 - rating).fill().map((_, index) => (
                     <RatingStar className="empty" key={`empty-${index}`} />
                 ))}
-                {/*<ReviewCounter reviewCount={reviewCount} />*/}
             </div>
-            <ReviewTextbox reviewText={reviewText}/>
+            <ReviewTextbox reviewText={reviewText} />
         </Card>
     );
 };

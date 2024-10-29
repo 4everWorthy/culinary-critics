@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-//import './index.css';
 
 function About() {
     return (
@@ -26,9 +25,9 @@ function About() {
                 </Row>
 
                 {/* Features Section */}
-                <Row className="content-section">
+                <Row className="content-section justify-content-center">
                     <Col md={4}>
-                        <Card className="feature-card">
+                        <Card className="feature-card text-center" style={{ borderColor: '#CC5500', borderWidth: '2px' }}>
                             <Card.Body>
                                 <Card.Title>Honest Reviews</Card.Title>
                                 <Card.Text>
@@ -38,11 +37,10 @@ function About() {
                             </Card.Body>
                         </Card>
                     </Col>
-                    {/* ... other feature cards ... */}
                 </Row>
 
-                {/*{/* Contact Section
-                <Row className="contact-container">
+                {/* Contact Section */}
+                {/* <Row className="contact-container">
                     <Col md={12} className="text-center">
                         <h2 className="section-title">Get in Touch</h2>
                         <p className="contact-text">

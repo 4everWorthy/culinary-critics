@@ -10,7 +10,7 @@ import Signup from './pages/signup';
 import UserProfile from './pages/userProfile'; // Ensure this is imported
 import WriteReview from './pages/writeReview';
 import AboutUs from './pages/aboutUs'; // Import the About Us component
-
+import Contact from "./pages/contact.jsx";
 import './App.css';
 
 // Protected Route component
@@ -37,6 +37,7 @@ function App() {
             element={<ProtectedRoute element={<WriteReview />} />} // Protect Write Review route
           />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
       <Footer />

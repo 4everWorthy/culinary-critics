@@ -33,7 +33,7 @@ const Home = () => {
             <Col key={index} xs={12} sm={6} md={4} className="mb-4">
               <ReviewCard
                 restaurantName={review.restaurantName}
-                user={review.user}
+                user={review.reviewerName}
                 reviewText={review.reviewText}
                 rating={review.rating}
                 imageSrc={review.imageUrl}

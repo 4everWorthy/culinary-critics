@@ -6,7 +6,7 @@ import './reviewAlert.css';
 const ReviewAlert = ({ user, reviewDate }) => {
     return (
         <div className="review-alert">
-            <p>{user?.name || 'Anonymous'} wrote a review. {reviewDate}</p>
+            <p>{user || 'Anonymous'} wrote a review. {reviewDate}</p>
         </div>
     );
 };

@@ -11,7 +11,7 @@ const UserBadge = ({ user }) => {
                 alt="User Avatar"
                 className="user-avatar"
             />
-            <span>{user?.name || 'Anonymous'}</span>
+            <span>{user || 'Anonymous'}</span>
         </div>
     );
 };

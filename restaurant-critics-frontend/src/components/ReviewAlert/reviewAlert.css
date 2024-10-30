@@ -1,15 +1,13 @@
-/* Styling for the review alert component */
 .review-alert {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     font-size: 0.9rem;
     text-align: left;
     color: #555;
     background-color: #FFFFFF; /* White background inside */
     padding: 5px;
-    border: 1.5px solid #2F4F77; /* Thick orange border */
+    /*border: 1.5px solid #2F4F77; !* Thick orange border *!*/
     border-radius: 8px; /* Rounded corners */
     width: 100%;
-    box-sizing: border-box; /* Ensures padding doesn’t affect border */
+    box-sizing: border-box; /* Ensures padding does not affect border */
 }

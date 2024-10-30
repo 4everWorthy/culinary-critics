@@ -7,6 +7,7 @@ import ReviewCard from '../components/Cards/ReviewCard/reviewCard';
 import reviewService from '../services/reviewService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const Home = () => {
   const [reviews, setReviews] = useState([]);
 

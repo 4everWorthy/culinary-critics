@@ -45,12 +45,13 @@
 
 .form-container {
     max-width: 500px;
-    margin: 0 auto;
+    margin: 40px auto; /* Added top and bottom margins */
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+}
+
   
   /* Form Input Fields */
   .form-input {
@@ -91,7 +92,7 @@
   /* Header for Forms */
   .form-header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     font-size: 1.8rem;
     color: #2F4F77; /* Theme color */
   }

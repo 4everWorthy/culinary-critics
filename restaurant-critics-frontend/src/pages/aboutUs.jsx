@@ -1,12 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-//import './index.css';
 
 function About() {
     return (
-        <div className="page-container">
+        <div className="page-container" style={{ margin: '40px 0' }}>
             <Container>
-                {/* Hero Section */}
                 <Row className="hero-section">
                     <Col md={12} className="text-center">
                         <h1 className="hero-title">About Culinary Critics</h1>
@@ -14,7 +12,6 @@ function About() {
                     </Col>
                 </Row>
 
-                {/* Mission Section */}
                 <Row className="content-section dark">
                     <Col md={12} className="text-center">
                         <h2 className="section-title">Our Mission</h2>
@@ -25,10 +22,9 @@ function About() {
                     </Col>
                 </Row>
 
-                {/* Features Section */}
-                <Row className="content-section">
+                <Row className="content-section justify-content-center">
                     <Col md={4}>
-                        <Card className="feature-card">
+                        <Card className="feature-card text-center" style={{ borderColor: '#CC5500', borderWidth: '2px' }}>
                             <Card.Body>
                                 <Card.Title>Honest Reviews</Card.Title>
                                 <Card.Text>
@@ -38,19 +34,7 @@ function About() {
                             </Card.Body>
                         </Card>
                     </Col>
-                    {/* ... other feature cards ... */}
                 </Row>
-
-                {/*{/* Contact Section
-                <Row className="contact-container">
-                    <Col md={12} className="text-center">
-                        <h2 className="section-title">Get in Touch</h2>
-                        <p className="contact-text">
-                            Have questions or suggestions? We'd love to hear from you!<br />
-                            Email us at: <a className="contact-link" href="mailto:contact@culinarycritic.com">contact@culinarycritic.com</a>
-                        </p>
-                    </Col>
-                </Row> */}
             </Container>
         </div>
     );

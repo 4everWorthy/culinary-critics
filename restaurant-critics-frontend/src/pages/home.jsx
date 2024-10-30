@@ -27,7 +27,7 @@ const Home = () => {
     <>
       {/* <Navbar /> */}
       <Container className="my-5">
-        <h2 className="text-center mb-4">Stick a Fork in it and Give a Review!</h2>
+        <h2 className="text-center mb-4">"Stick a Fork in it and Give a Review!"</h2>
         <Row>
           {reviews.map((review, index) => (
             <Col key={index} xs={12} sm={6} md={4} className="mb-4">

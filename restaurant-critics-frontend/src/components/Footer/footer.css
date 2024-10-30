@@ -21,9 +21,15 @@
   gap: 10px;
 }
 
+footer p {
+  margin: 0;
+}
+
+
 .footer-logo {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  padding-left: 5px;
 }
 
 .footer-right {
